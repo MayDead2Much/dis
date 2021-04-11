@@ -1,0 +1,14 @@
+ol {
+    counter-reset: section;
+    list-style-type: none;
+}
+
+ol>li::before {
+    counter-increment: section;
+    content: counters(section, ".") " ";
+}
+
+ol>li>h1, ol>li>h2, ol>li>h3, ol>li>h4, ol>li>h5, ol>li>h6 {
+    display: inline;
+    margin: 15px;
+}

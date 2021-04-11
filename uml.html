@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>UML</title>
+
+        <link href="styles.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <h1>UML</h1>
+        <p>Univerzalni, průmyslově standarizovaná grafická notace. Nedefinuje žádný specifický druh metodiky.</p>
+        <p>Použít je mohou všechny nástroje CASE.</p>
+        <p>Slouží především pro specifikaci, vizualizaci, konstrukci a dokumentaci prvků softwarového systému.</p>
+        <p>Pouze vizuání zpracování, nijak by tě do ničeho neměl nutit.</p>
+        <p>Poprvé představen společností OMG (Object Management Group), ale koho to zajímá, že?</p>
+
+        <h2>Ale proč prostě?</h2>
+
+        <h3>Snaha o sjednocení.</h3>
+        <ul>
+            <li>Vývojového cyklu</li>
+            <li>Aplikační domény</li>
+            <li>Implementační jazyky a platformy</li>
+            <li>Vývojové procesy</li>
+            <li>Vlastní interní pojmy</li>
+        </ul>
+
+        <h2>Objekty a UML</h2>
+        <ul>
+            <li>
+                <h3>Statická struktura</h3>
+                <p>Popisuje důležité objekty</p>
+            </li>
+            <li>
+                <h3>Dynamické chování</h3>
+                <p>Jak budou dané objekty vlastně fungovat</p>
+            </li>
+        </ul>
+
+        <h2>Struktura jazyka UML</h2>
+        <ul>
+            <li>
+                <h3>Stavební bloky</h3>
+                <p>Základní komponenta</p>
+                <p>Obsahují:</p>
+                <ul>
+                    <li>Předměty</li>
+                    <li>Vztahy</li>
+                    <li>Diagramy</li>
+                </ul>
+            </li>
+            <li>
+                <h3>Obecná Mechanika</h3>
+                <p>4 základní mechanismy</p>
+                <ul>
+                    <li>Specifikace</li>
+                    <li>Ozdoby</li>
+                    <li>Podskupiny</li>
+                    <li>Mechanismy rozšiřitelnosti</li>
+                </ul>
+
+                <p>Tyto mechanismy popisují strategie modelování objektů</p>
+            </li>
+            <li>
+                <h3>Architektura</h3>
+                <p>Vztahy, funkce apod. jednotlivých objektů</p>
+            </li>
+        </ul>
+
+        <ol>
+            <li>
+                <h3>Stavební bloky UML</h3>
+                <ol>
+                    <li>
+                        <h4>Předměty</h4>
+                        <ul>
+                            <li>
+                                <h5>Strukturní abstrakce</h5>
+                                <p>Objekty, ze kterých se program nebo diagram skládá</p>
+                                <ul>
+                                    <li>Class</li>
+                                    <li>Interface</li>
+                                    <li>Collaboration</li>
+                                    <li>Use Case</li>
+                                    <li>Active Class</li>
+                                    <li>Component</li>
+                                    <li>Node</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h5>Chování</h5>
+                                <p>Prostě interakce</p>
+                            </li>
+                            <li>
+                                <h5>Seskupení</h5>
+
+                            </li>
+                            <li>
+                                <h5>Poznámky</h5>
+                                <p>Komenty lul</p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4>Relace</h4>
+                        <p>Ukazuje vztahy</p>
+                        <p>Konkrétně 4 různé</p>
+                        <ul>
+                            <li>Asociace - popis spojení jednotlivých předmětů</li>
+                            <li>Závislost - Změna v parentu ovlivní děcka</li>
+                            <li>Zobecnění - Tohle je možná blbě, ale asi je to polymorphysmus, na instanci Knedlik muzete odkazovat přes Jídlo, jestli se chápeme</li>
+                            <li>Realizace - Jeden určí dohodu a druhej ji splní</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4>Diagramy</h4>
+                        <p>!! Celkem TODO, moc to nechápu</p>
+                        <p>Pouze pohled na věc, nikoliv samotný model</p>
+                        <ul>
+                            <li>
+                                <h5>Diagramy Struktury</h5>
+                                <ul>
+                                    <li>Diagram tříd</li>
+                                    <li>Diagram komponent</li>
+                                    <li>Diagram nasazení</li>
+                                    <li>Objektový diagram</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h5>Diagram chování</h5>
+                                <ul>
+                                    <li>Diagram případů užití</li>
+                                    <li>Stavový diagram</li>
+                                    <li>Diagram aktivit</li>
+                                    <li>Diagram posloupnosti/sekvenční</li>
+                                    <li>Diagram spolupráce</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ol>
+            </li>
+            <li>
+                <h2>Obecná mechanika</h2>
+                <ol>
+                    <li>
+                        <h3>Specifikace</h3>
+                        <p>Specikace jsou klíčem, bez nich toho moc nenaplánujem.</p>
+                        <p>Dva rozměry:</p>
+                        <ul>
+                            <li>
+                                <h4>Grafický</h4>
+                                <p>Vizualice modelu pomocí diagramů a prostředků.</p>
+                            </li>
+                            <li>
+                                <h4>Textový</h4>
+                                <p>Textový popisek</p>
+                            </li>
+                        </ul>
+                        <p>UML modely mohou být:</p>
+                        <ul>
+                            <li>
+                                <h4>Proškrtané</h4>
+                                <p>Někdy prostě něco nevyjde, tak to dáš pryč</p>
+                            </li>
+                            <li>
+                                <h4>Neúplné</h4>
+                                <p>Něco chybí</p>
+                            </li>
+                            <li>
+                                <h4>Nekonzistentní</h4>
+                                <p>Někdy se mohou objevit protimluvy</p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3>Ozdoby</h3>
+                        <br/>
+                        <img alt="Ozdoby" src="./img/ozdoby01.png"/>
+                    </li>
+                    <li>
+                        <h3>Podskupiny</h3>
+                        <p>Popisují různé podskupiny vidění světa. V UML rozlišujeme dvě takové podskupiny</p>
+                        <ul>
+                            <li>Klasifikátory a instance</li>
+                            <li>Rozhraní a implementace</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3>Mechanismy rozšiřitelnosti</h3>
+                        <p>aneb. modifikace</p>
+                        <ul>
+                            <li>
+                                <h4>Omezení</h4>
+                                <p>Přidáte pravidla, která něco omezí.</p>
+                            </li>
+                            <li>
+                                <h4>Stereotypy</h4>
+                                <p>Umožnuje definovat nový element, založen na jiném</p>
+                            </li>
+                            <li>
+                                <h4>Označené hodnoty</h4>
+                                <p>Umožnuje rozšířit specifikaci elementu.</p>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <h2>Architektura</h2>
+                <p>Organizační struktura systému, včetně jeho rozkladu na součásti, propojitelnost, interakce, mechanismy, zásady, která proniká do návrhu systému.</p>
+                <p>Architektura 4+1</p>
+                <ul>
+                    <li>
+                        <h3>Logický pohled</h3>
+                        <p>Jak software funguje</p>
+                        <p>Logické vazby, funkce systému, slovník</p>
+                    </li>
+                    <li>
+                        <h3>Pohled procesů</h3>
+                        <p>Jak se software bude rozvijet</p>
+                        <p>Výkon systému, škálovatelnost a propustnost</p>
+                    </li>
+                    <li>
+                        <h3>Pohled implementace</h3>
+                        <p>Jak se software nasadí</p>
+                        <p>Způsob montáže, správa konfigurace</p>
+                    </li>
+                    <li>
+                        <h3>Pohled nasazení</h3>
+                        <p>Jak se software dostane k uživateli</p>
+                        <p>Distribuce, doručení k uživateli, instalace</p>
+                    </li>
+                    <li>
+                        <h3>Souhrn</h3>
+                        <p>Případ užití, popis požadavků uživatele</p>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+    </body>
+</html>
