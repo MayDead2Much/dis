@@ -1,0 +1,149 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Busines modelovani</title>
+        <meta name="description" content="Vytah z prezentaci a dalsich zdroju o business modelovani softwaru">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- CSS -->
+        <link href="./css/main.css" rel="stylesheet"/>
+
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">
+            You are using an <strong>outdated</strong> browser. Please
+            <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+            your experience.
+            </p>
+        <![endif]-->
+
+        <h1>Business Modelovani</h1>
+
+        <h2>Zacatek</h2>
+
+        <img alt="Jednotlive faze" src="./img/business_beginning.png"/>
+
+        <p>Do firmy prichazeji experti a snazi se zlepsit to jak pracujeme!</p>
+        <p>Napriklad tedy neco automatizuji, treba misto Davidova OneDrivu, pouziji automaticke buildy.</p>
+        <p>Cilem je snizit naroky na cas a penize.</p>
+        <p>Hlavnim rozdilem od klasickeho planovani aplikace je ten, ze ted ti "experti" problemy sami hledaji a zkoumaji je.</p>
+
+        <img alt="Priklad jak takova analyza a zlepsovani funguje" src="./img/business_model.png"/>
+
+        <p>BM se sklada z nasledujicich aktivit</p>
+
+        <ul>
+            <li>Byznys diagramy pripadu uziti</li>
+            <li>Aktivitni diagramy</li>
+            <li>Objektove diagramy</li>
+        </ul>
+
+        <p>Milnikem je to, ze experti vedi, jake procesy analyzuji, rekneme tedy treba</p>
+        <ul>
+            <li>Proces exportu</li>
+            <li>Testovani aplikace</li>
+        </ul>
+
+        <p>Napad rozsireni diagramu pochazi z tzv. Data Flow Diagramu</p>
+
+        <img alt="" src="./src/business_use_case_example.png"/>
+
+        <p>V tomto obrazku jsou relace typu extend a include. Ty se ale moc nepouzivaji, jsou nesrozumitelne pro klienta.</p>
+
+        <p>Musime najit nasledujici veci</p>
+        <ul>
+            <li>Hranice systemu</li>
+            <li>Ucastniky</li>
+            <li>Pripadu uziti</li>
+            <li>Specifikaci pripadu uziti a tvorbe scenaru</li>
+        </ul>
+        <p>Toto jsou klicove aktivity pro zjisteni toho, co se da vylepsit.</p>
+
+        <p>Pojdme si je rozebrat</p>
+        <ol>
+            <li>
+                <h3>Hranice systemu</h3>
+                <p>Jinymi slovy, co vsechno musime splnit, aby byl produkt finalni.</p>
+            </li>
+            <li>
+                <h3>Ucastnici</h3>
+                <p>Nejsou to lidi jaj ale proste fakt role v procesu, treba i cas.</p>
+                <p>Funguje zde dedicnost, napr.</p>
+                <p>Uzivatel sefredaktor je pri pridavani vlastniho clanku v roli redaktora. Resp. uzivatel muze mit pristup k vice rolim</p>
+
+                <br/>
+
+                <p>Abych mohli ucastniky identifikovat, musime se zeptat:</p>
+                <p>Kdo, nebo co, system pouziva, a jakou roli pri komunikaci se systemem hraje.</p>
+                <img alt="" src="./img/ucastnici.png"/>
+                <img alt="" src="./img/ucastnici2.png"/>
+
+                <p>Muzeme z tohoto odvodit</p>
+                <ul>
+                    <li>
+                        <h4>Seznam zaznamu</h4>
+                        <p>Z nich lze odvodit budouci slovnicek pojmu a databazove tabulky.</p>
+                    </li>
+                    <li>
+                        <h4>Zjisteni atributu</h4>
+                        <p>Blizsi specifikace tabulky, otazky na vlastnosti budoucich atributu.</p>
+                    </li>
+                    <li>
+                        <h4>Manipulace s daty</h4>
+                        <p>Ze stavajiciho stavu zjistit, jake moznosti mame s manipulaci s daty vcetne zjisteni opravneni k pristupu jak z pohledu aktera, tak z pohledu procesu.</p>
+                    </li>
+                </ul>
+
+                <p>Neni prilis rozumne prirazovat roli Funkcionar, Hrac, Rozhodci, Trener, bez role Clen Svazu. Proto pouzijeme jinej diagram.</p>
+
+                <img alt="" src="./img/ucastnici3.png"/>
+            </li>
+            <li>
+                <h3>Pripad uziti</h3>
+                <p>Strukturovany vycet veci, co muze "ucastnik" delat.</p>
+                <p>Projdou se vsichni ucastnici zjisti se, co kdo bude delat a co k tomu potrebuje. Potreba muze byt treba i opravneni atd.</p>
+            </li>
+            <li>
+                <h3>Relace</h3>
+                <p>Rozlisujeme tyto zakladni typy relaci</p>
+                <img alt="" src="./img/relace.png"/>
+            </li>
+        </ol>
+
+        <p>Prvni vec co udelame je hledani te zminene hranice.</p>
+        <p>Musime proste rozhodnout, co je uvnitr naseho systemu, a co neni.</p>
+        <p>Hranice je definovana uzivateli (ucastniky). Resp. je blbost implementovat neco co uzivatel nechce, nebo uz ma. TL;DR KISS</p>
+
+        <br/>
+        <p>Z logiky funkcnich pozadavku je zrejme, ze by bylo dobre system rozdelit na dve casti.</p>
+        <p>Proc?</p>
+        <p>Je evidentni, ze pozadavky klienta deli system na</p>
+        <ul>
+            <li>Administraci</li>
+            <li>Webovou prezentaci</li>
+        </ul>
+        <p>Dalsim duvodem je prehlednost</p>
+
+        <h2>Aktivitni diagramy</h2>
+        <p>Aktivitni diagramy nemaji v datovem modelovani alternativu. Jsou to vlastne Stavove diagramu, obohacene o swimlines. Swimlines udavaji odpovednost aktera za konkretni aktivitu.</p>
+        <p>Jejich hlavnim ucelem je zachyceni procesu v zavislosti na case. Maji urcenou zodpovednost a s rozkladem procesu na aktivity.</p>
+        <p>Ukazuji jake aktivity se v tabulce budou provadet</p>
+
+        <p>Kazdy use-case musi mit svou navaznost v Aktivitnim diagramu.</p>
+
+        <p>Ukazeme si to na prikladu, kde pridavame clena fotbaloveho svazu.</p>
+        <img alt="" src="./img/aktivitni_diagramy01.png"/>
+
+        <p>I pres to, ze aktivitni diagram neni primarne urcen pro datove modelovani, lze jej pouzit. Musime pouze mezi aktivity pridame objekty, resp. udaje, ktere se predavaji.</p>
+        <p>K tomu pouzijeme "Objekt"</p>
+        <p>Timto rekneme, ze informace se spracuje ale neuklada se do databaze. Jinak bychom pouzily "Stereotyp Datastore"</p>
+
+
+    </body>
+</html>
