@@ -1,4 +1,65 @@
-img {
-    max-width: 500px;
+/* Colors */
+:root {
+    --bg-primary: #010101;
+    --fg-primary: #afafaf;
+}
 
+/* Body */
+body {
+    color: var(--fg-primary);
+    background-color: var(--bg-primary);
+    padding: 40px;
+}
+
+/* Images */
+img {
+    max-width: 350px;
+}
+
+/* Headers */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display';
+    color: #ffffff;
+}
+
+p, li {
+    font-family: 'Roboto';
+}
+
+/* Text */
+span.quote {
+    font-weight: 400;
+    font-family: 'Playfair Display';
+    font-style: italic;
+}
+
+/* Messages */
+.message {
+
+    padding: 20px;
+    background-color: #0a0a0a;
+
+    margin-bottom: 50px;
+} .message::before {
+    font-size: 24px;
+    font-family: 'Playfair Display';
+}
+
+
+.message.warning {
+    border-left: yellow 5px solid;
+}
+
+.message.warning::before {
+    content: 'Upozorneni';
+    color: yellow;
+}
+
+.message.example {
+    border-left: blue 5px solid;
+}
+
+.message.example::before {
+    content: 'Priklad';
+    color: blue;
 }

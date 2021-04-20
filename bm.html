@@ -13,6 +13,9 @@
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
 
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -36,27 +39,24 @@
 
         <img alt="Priklad jak takova analyza a zlepsovani funguje" src="./img/business_model.png"/>
 
-        <p>BM se sklada z nasledujicich aktivit</p>
-
+        <!-- Diagramy -->
+        <h3>BM se sklada z nasledujicich aktivit</h3>
         <ul>
             <li>Byznys diagramy pripadu uziti</li>
-            <li>Aktivitni diagramy</li>
-            <li>Objektove diagramy</li>
+            <li><a href="#activity-diagrams">Aktivitni diagramy</a></li>
+            <li><a href="#object-diagrams">Objektove diagramy</a></li>
         </ul>
 
-        <p>Milnikem je to, ze experti vedi, jake procesy analyzuji, rekneme tedy treba</p>
-        <ul>
-            <li>Proces exportu</li>
-            <li>Testovani aplikace</li>
-        </ul>
-
+        <p>Milnikem je to, ze experti vedi, jake procesy analyzuji</p>
         <p>Napad rozsireni diagramu pochazi z tzv. Data Flow Diagramu</p>
 
         <img alt="" src="./src/business_use_case_example.png"/>
 
-        <p>V tomto obrazku jsou relace typu extend a include. Ty se ale moc nepouzivaji, jsou nesrozumitelne pro klienta.</p>
+        <div class="message warning">
+            <p>V tomto obrazku jsou relace typu extend a include. Ty se ale moc nepouzivaji, jsou nesrozumitelne pro klienta.</p>
+        </div>
 
-        <p>Musime najit nasledujici veci</p>
+        <h4>Musime najit nasledujici veci</h4>
         <ul>
             <li>Hranice systemu</li>
             <li>Ucastniky</li>
@@ -65,22 +65,22 @@
         </ul>
         <p>Toto jsou klicove aktivity pro zjisteni toho, co se da vylepsit.</p>
 
-        <p>Pojdme si je rozebrat</p>
+        <h4>Pojdme si je rozebrat</h4>
         <ol>
             <li>
-                <h3>Hranice systemu</h3>
+                <h5>Hranice systemu</h5>
                 <p>Jinymi slovy, co vsechno musime splnit, aby byl produkt finalni.</p>
             </li>
             <li>
-                <h3>Ucastnici</h3>
+                <h5>Ucastnici</h5>
                 <p>Nejsou to lidi jaj ale proste fakt role v procesu, treba i cas.</p>
-                <p>Funguje zde dedicnost, napr.</p>
-                <p>Uzivatel sefredaktor je pri pridavani vlastniho clanku v roli redaktora. Resp. uzivatel muze mit pristup k vice rolim</p>
-
-                <br/>
+                <div class="message example">
+                    <p>Funguje zde dedicnost, napr.</p>
+                    <p>Uzivatel sefredaktor je pri pridavani vlastniho clanku v roli redaktora. Resp. uzivatel muze mit pristup k vice rolim</p>
+                </div>
 
                 <p>Abych mohli ucastniky identifikovat, musime se zeptat:</p>
-                <p>Kdo, nebo co, system pouziva, a jakou roli pri komunikaci se systemem hraje.</p>
+                <p><span class="quote">Kdo, nebo co, system pouziva, a jakou roli pri komunikaci se systemem hraje.</span></p>
                 <img alt="" src="./img/ucastnici.png"/>
                 <img alt="" src="./img/ucastnici2.png"/>
 
@@ -130,7 +130,7 @@
         </ul>
         <p>Dalsim duvodem je prehlednost</p>
 
-        <h2>Aktivitni diagramy</h2>
+        <h2 id="activity-diagrams">Aktivitni diagramy</h2>
         <p>Aktivitni diagramy nemaji v datovem modelovani alternativu. Jsou to vlastne Stavove diagramu, obohacene o swimlines. Swimlines udavaji odpovednost aktera za konkretni aktivitu.</p>
         <p>Jejich hlavnim ucelem je zachyceni procesu v zavislosti na case. Maji urcenou zodpovednost a s rozkladem procesu na aktivity.</p>
         <p>Ukazuji jake aktivity se v tabulce budou provadet</p>
@@ -143,6 +143,94 @@
         <p>I pres to, ze aktivitni diagram neni primarne urcen pro datove modelovani, lze jej pouzit. Musime pouze mezi aktivity pridame objekty, resp. udaje, ktere se predavaji.</p>
         <p>K tomu pouzijeme "Objekt"</p>
         <p>Timto rekneme, ze informace se spracuje ale neuklada se do databaze. Jinak bychom pouzily "Stereotyp Datastore"</p>
+
+
+
+        <!-- Object diagram -->
+        <h2 id="object-diagrams">Objektove diagramy</h2>
+        <p>Definuje strukturalni model byznys procesu.</p>
+        <p>Sklada se z</p>
+        <ul>
+            <li>trid objektu worker => aktivni objekty</li>
+            <li>trid objektu entity => pasivni</li>
+        </ul>
+        <p>Vztahy jsou zachyceny relacemi => ukazuji jak mezi sebou tridy funguji.</p>
+        <p>Delime na:</p>
+        <ul>
+            <li>
+                <h3>Asociace</h3>
+                <p>Rovnocenny vztah => obousmerna komunikace</p>
+            </li>
+            <li>
+                <h3>Kompozice</h3>
+                <p>Typ soucast a celek, tedy logicky, soucast nemuze existovat bez celku.</p>
+                <p>Paveza rika silnejsi agregace, ale podle me to je pouze trida A obsahuje hodnotu typu trida B</p>
+            </li>
+            <li>
+                <h3>Generalizace</h3>
+                <p>Vztah mezi nadrazenym a podrizenym objektem. Podrizeny objekt bere vsechny vlastnosti parenta a rozsiri je => klasicka dedicnost.</p>
+            </li>
+        </ul>
+
+        <img alt="" src="./img/objektovy_diagram1.png"/>
+
+        <p>Z digramu lze ziskat nazvy tabulek a vazby mezi tabulkami. Naopak, diky umisteni do byznys modelovani, neobsahuje informace o atributech a metodach.</p>
+        <p>Taktez prvni diagram co umozni strukturalni nahled na celou problematiku.</p>
+
+
+
+        <!-- Pozadavky -->
+        <h1>Metodika integrace datoveho modelovani do prostredi UML</h1>
+        <h2>Zacatek</h2>
+        <h3>Pozadavky</h3>
+        <p>Rika co se ma udelat, ale nepopisuje jak.</p>
+        <p>Je to velmi dulezita cas celeho procesu. Na nem se odrazi vsechny dalsi faze.</p>
+        <p>Nedostatecne nebo neuplne vyplneni zpusobi neuspech pri nasazeni softwaru.</p>
+        <p>Nejvice prace je u pozadavku ve fazi zacatku a rozpracovani.</p>
+        <h4>Zachycujeme pomoci</h4>
+        <ul>
+            <li>Zachyceni funkcnich a nefunkcnich pozadavku.</li>
+            <li>Zhotoveni pripadu uziti a zjisteni ucastniku systemu.</li>
+        </ul>
+        <p>Tohle otevre pohled na system => umozni sledovat jednotlive komponenty.</p>
+
+        <p>Dulezite je zachytit vsechny pozadavky.</p>
+        <p>To je docileno konzultacemi se zadavatelem. K tomu se musi snazit spravne formulovat otazky.</p>
+        <p>I zachycovani pozadavku probiha v iteracich. Muze se stat, ze se nezapisou vsechny pozadavky => zpusobi mozne zpozdeni projektu.</p>
+        <p>Tato cast je opravdu velmi dulezita</p>
+
+        <h4>Provadime nasledujici aktivity.</h4>
+        <ul>
+            <li>
+                <h5>Funkcni a nefunkcni pozadavky</h5>
+                <ul>
+                    <li>
+                        <h6>Funkcni</h6>
+                        <p>Definuji co ma system delat, jak se ma chovat, co ma evidovat a dalsi. Vycet funkcnich pozadavku je dan konkretnim systemem.</p>
+                    </li>
+                    <li>
+                        <h6>Nefunkcni</h6>
+                        <p>Definuji omezujici podminky. Hardware, rychlost systemu nebo prostredi.</p>
+                    </li>
+                </ul>
+                <p>Pozadavky se formuluji jednoznacne, structne a jednoduse.</p>
+                <p>Struktura tedy bude nasledujici</p>
+                <p>"<id><system> bude <funkce>"</p>
+                <ul>
+                    <li>ID => jednoznacny identifikator, napr. F1, N1, apod.</li>
+                    <li>System => Nazev systemu</li>
+                    <li>Bude => klicove slovo. Musi ho obsahovat kazdy spravny pozadavek.</li>
+                    <li>Funkce => Jednoznacny popis toho, co bude system delat. Neobsahuje zadnou podminku. Nepokracuje souvetim.</li>
+                </ul>
+                <p>Kdyz to po nas bude nekdo cist, nesmi se ptat "Jak si to myslel?"</p>
+                <p>Nepokousejte se specifikovat vychodiska a reseni. On chce jen pohled na system.</p>
+                <img alt="" src="funkcni_nefunkcni.png"/>
+
+            </li>
+            <li>Pripady uziti</li>
+            <li>Detaily pripadu uziti</li>
+            <li>Slovnicek pojmu</li>
+        </ul>
 
 
     </body>
