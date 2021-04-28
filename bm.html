@@ -42,15 +42,17 @@
         <!-- Diagramy -->
         <h3>BM se sklada z nasledujicich aktivit</h3>
         <ul>
-            <li>Byznys diagramy pripadu uziti</li>
+            <li><a href="#business-use-case-diagrams">Byznys diagramy pripadu uziti</a></li>
             <li><a href="#activity-diagrams">Aktivitni diagramy</a></li>
             <li><a href="#object-diagrams">Objektove diagramy</a></li>
         </ul>
 
+        <h2 id="business-use-case-diagrams">Byznys diagramy případů užití</h2>
+        <p>S případem užití se setkáváme nejen v BM, ale také v postupu Požadavky. </p>
         <p>Milnikem je to, ze experti vedi, jake procesy analyzuji</p>
         <p>Napad rozsireni diagramu pochazi z tzv. Data Flow Diagramu</p>
 
-        <img alt="" src="./src/business_use_case_example.png"/>
+        <img alt="" src="./img/business_use_case_example.png"/>
 
         <div class="message warning">
             <p>V tomto obrazku jsou relace typu extend a include. Ty se ale moc nepouzivaji, jsou nesrozumitelne pro klienta.</p>
@@ -225,11 +227,133 @@
                 <p>Kdyz to po nas bude nekdo cist, nesmi se ptat "Jak si to myslel?"</p>
                 <p>Nepokousejte se specifikovat vychodiska a reseni. On chce jen pohled na system.</p>
                 <img alt="" src="funkcni_nefunkcni.png"/>
+                <p>Spojení více subsystémů, reprezentovaných jako Package, tvoříme asociací. Vhodné rozdělení může opět rozdělit požadavky na chování a výstupy databázových entit, popřípadě na jejich pohledy</p>
+                <p>U větších projektů lze pak části transparentně rozdělit mezi více řešitelů.</p>
+
+                <p>Při zjemnování požadavků v iteracích lze provádět jejich rozklad kladením otázek. To přináší upřesnění datového modelu.</p>
+                <p>V tomto okamžiku je vhodné provést analýzu přirozeného jazyka a zaměřit se na podstatná jména z funkčních požadavků.</p>
+                <p>Ty mohou reprezentovat budoucí slova ze slovníčku pojmů.</p>
+
+                <p>Například:</p>
+                <p>Všimněte si například funkčního požadavku F5 a zaměrme se na podstatné jméno soupiska.</p>
+                <ul>
+                    <li>Co je to soupiska?</li>
+                    <li>Z čeho se skládá?</li>
+                    <li>Kdo smí soupisku pouze zobrazit?</li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <p><b>F5</b></p>
+                        <p>Systém umožní trenérovi vytvářet a editovat soupisku utkání.</p>
+                    </li>
+                    <li>
+                        <p><b>F5.1</b></p>
+                        <p>Soupiska bude obsahovat:</p>
+                        <ul>
+                            <li>Názvy týmů</li>
+                            <li>Jmenný seznam hráčů</li>
+                            <li>Datum utkání</li>
+                            <li>Místo utkání</li>
+                            <li>Počet odehraných minut</li>
+                            <li>Červené a žluté karty</li>
+                            <li>Goly s minutou vstřelení a hráčem</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><b>F5.2</b></p>
+                        <p>Systém umožní doplnění údajů i po odehrání utkání.</p>
+                    </li>
+                    <li>
+                        <p><b>F5.3</b></p>
+                        <p>Systém umožní zobrazení soupisky všem přihlášeným uživatelům.</p>
+                    </li>
+                </ul>
+
+                <p>Aby na nás analytik ?neútočil?, položme si tyto otázky sám.</p>
+                <p>Vyvstalý problém se však musí vyřešit, právě tento okamžik se může stát kritickým faktorem pro celý projekt. Klient klidně může říct, že to "Diskuzní fórum", si takhle nepředstavoval, a že ho chce udělat jinak = nárust práce.</p>
+                <p>Diagramy případu užití známe již z Byznys modelování. Nyní však do tvorby vstupuje klient. To přináší jiný úhel pohledu na Případy užití.</p>
+
 
             </li>
-            <li>Pripady uziti</li>
+            <li>
+                <h5>Pripady uziti</h5>
+                <p>Vzpoměnme si na příklad z funkčních požadavků a pokusme se v nich najít účastníky systémů.</p>
+                <ul>
+                    <li>
+                        <p><b>F1</b></p>
+                        <p>Systém umožní přihlášení:</p>
+                        <ul>
+                            <li>Správce</li>
+                            <li>Člen svazu</li>
+                            <li>Funkcionáře</li>
+                            <li>Trenéra</li>
+                            <li>Hráče</li>
+                            <li>Rozhodčí</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><b>F5</b></p>
+                        <p>Systém umožní Trenérovi vytvářet a editovat soupisku utkání.</p>
+                    </li>
+                    <li>
+                        <p><b>F5.3</b></p>
+                        <p>Systém umožní zobrazení soupisky všem přihlášeným uživatelům.</p>
+                    </li>
+                </ul>
+
+                <p>Ve funkčních požadavcích se díky pravidlům pro formulaci snadno hledá podstatné jméno (zodpovědnost, komunikace). Tento způsob hledání se nazývá Analýza přirozeného jazyka.</p>
+                <p>Již z termínu "případ užití", je jasné, že se jedná o reakci na <b>požadavek</b> účastníka na systém. Je tedy přímo nebo nepřímo <b>evokován účastníkem</b></p>
+                <p>Případy užití tvoříme z pohledu účastníka. Pozorní z vás si domyslela návaznost na funkční požadavky.</p>
+                <br/>
+                <p>Nyní známe všechny účastníky systému. Nyní z <b>funkčních požadavků</b> budeme zjištovat co vlastně budou dělat a jak spolu budou komunikovat.</p>
+                <p>Bývá vhodné celé modelování konzultovat s klientem až při druhém setkání (iteraci). Tvoříme z funkčních požadavků. Konzultant musí chápat systém v širším kontextu.</p>
+
+                <p>Z pohledu syntaxe datového modelování tato aktivita nepřínáší nic nového. Jedná se o upřesnění</p>
+            </li>
             <li>Detaily pripadu uziti</li>
-            <li>Slovnicek pojmu</li>
+            <li>
+                <h5>Slovníček pojmů</h5>
+                <p>Informační systémy jsou zpravidla implementovány v různých odvětvích. Každé odvětví s sebou přináší pestrou terminologii, které musí rozumět i vývojový tým.</p>
+                <p>K tomuto účelu je potřeba zavést jako další část analýzy prvek, který dokáže zachytit a vysvětlit pojmy z reálného světa. UML bohužel ve své škále diagramů takovou možnost nenabízí.</p>
+                <p>Jako rozšíření se nabízí možnost publikovaná v knize UML a unifikovaný proces vývoje aplikací <b>Slovníček pojmů</b></p>
+                <br/>
+                <p>Z pohledu datového modelování plyne v této fázi vývoje i další potřeba. Shromáždit a strukturovat podklady pro návrh databáze.</p>
+                <p>Edward Nash Yourdor, autor mnoha dalších metologií pro vývoj softwaru, navrhl tzv. <b>Datový slovník</b></p>
+                <p>Ten je orientovaný na podrobný popis údajů, které mají být v systému evidovány, včetně obecných datových typů, určení indexů, klíčů a dalších údajů.</p>
+                <p><b>Slovníček pojmů</b> je výčet položek, se kterými systém pracuje, čte je a ukládá jejich omezení například z pohledu evidence. Slovníček pojmů pomáhá určit, jaká data bude systém evidovat a jaká budou mít omezení.</p>
+                <p>Postup by měl být asi takový, že ve funkčních požadavcích hledáme podstatná jména. Z kontextu, ve kterém jsou tato podstatná jména, posoudíme jejich význam. Vše konzultujeme s klientem.</p>
+
+                <p>Např.</p>
+                <p>F5: Systém umožní Trenérovi přidávat a editovat soupisku utkání.</p>
+                <h6>Člen svazu - všichni uživatelé jsou členy svazu. Synonyma = žádná. Homonyma = žádná</h6>
+                <ul>
+                    <li>
+                        <h7>Jméno</h7>
+                        <p>Povinný textový řetězec. Křestní jméno člena svazu, v případě více jmen, zapíše se do stejného pole.</p>
+                    </li>
+                    <li>
+                        <h7>Příjmení</h7>
+                        <p>Povinný textový řetězec. Stejný případ jako u jména.</p>
+                    </li>
+                    <li>
+                        <h7>Funkce</h7>
+                        <p>Povinný textový řetězec. Udává název funkce, kterou člen svazu zastává. Jde o výčet funkcí, zapsáno může být i více funkcí najednou.</p>
+                    </li>
+                    <li>
+                        <h7>Datum narození</h7>
+                        <p>Povinné datum</p>
+                    </li>
+                    <li>
+                        <h7>ClenSvazuOd</h7>
+                        <p>Povinné datum. Musí být menší než hodnota ClenSvazuDo.</p>
+                    </li>
+                    <li>
+                        <h7>ClenSvazuDo</h7>
+                        <p>Povinné datum. Musí být vetší než hodnota než ClenSvazuOd</p>
+                    </li>
+                </ul>
+            </li>
         </ul>
 
 
